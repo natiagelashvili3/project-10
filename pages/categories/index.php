@@ -1,4 +1,5 @@
-<?php
+<?php    
+
 // Delete Query
 if(isset($_POST['action']) && $_POST['action'] == 'delete'){
     $id = isset($_POST['id']) ? $_POST['id'] : null;

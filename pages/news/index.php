@@ -29,6 +29,7 @@ $pageNumber = ceil($count['cnt'] / $limit);
 $sql = "SELECT news.id as news_id, news.title as news_title, news.text, news.category_id, categories.id as cat_id, categories.title as category_title
           FROM news
     LEFT JOIN categories ON news.category_id = categories.id ". $orderBy . ' LIMIT ' . $limit .' '. $offset;
+
 $news = getAll($sql);
 
 ?>
@@ -39,6 +40,7 @@ $news = getAll($sql);
         <a href="<?= '?' . $_SERVER['QUERY_STRING'] . '&action=add' ?>" class="btn">Add New</a>
     </div>
     <form action="" class="sort">
+            <input type="hidden" name="page" value="<?= $_GET['page'] ?>">
             <select name="sort" id="">
                 <option value="id-desc">ID DESC</option>
                 <option value="id-asc" <?= isset($_GET['sort']) && $_GET['sort'] == 'id-asc' ? 'selected' : '' ?>>ID ASC</option>

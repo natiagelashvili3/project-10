@@ -210,3 +210,16 @@ main{
 .tb-text{
     max-width: 200px;
 }
+
+.login-contianer{
+    max-width: 800px;
+    margin: 50px auto;
+}
+.registration-btn{
+    margin-left: 10px;
+    color: #6f5cc4;
+    font-size: 14px;
+}
+.logout{
+    color: white;
+}
