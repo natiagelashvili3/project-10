@@ -1,7 +1,7 @@
 <?php
 
     session_start();
-
+    
     include 'helpers/functions.php';
     include 'helpers/db_connection.php';
 
@@ -19,6 +19,14 @@
         $action = 'index';
     }
 
+    if( isset($_COOKIE['mode']) && $_COOKIE['mode'] == 'dark' ) {
+        $mode = 'light';
+        $current_mode = 'dark';
+    } elseif((isset($_COOKIE['mode']) && $_COOKIE['mode'] == 'light') || !isset($_COOKIE['mode'])) {
+        $mode = 'dark';
+        $current_mode = 'light';
+    }
+
 ?>
 
 <html lang="en">
@@ -29,11 +37,18 @@
     <title>Document</title>
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
-<body>
+<body class="<?= $current_mode ?>">
 
     <header>
         <a href="index.php"><span class="logo">LOGO</span></a>
         <div class="user">
+            <div>
+                <form action="setCookie.php" method="POST">
+                    <input type="hidden" name="action" value="change-mode">
+                    <input type="hidden" name="value" value="<?= $mode ?>">
+                    <button class="btn" id="mode"><?= ucfirst($mode) ?> Mode</button>
+                </form>
+            </div>
             <div>
                 <img src="assets/img/user.png" alt="">
             </div>
@@ -70,6 +85,8 @@
     include 'pages/'.$page.'/'.$action.'.php';
 
     ?>
+
+    <script src="assets/js/script.js"></script>
 
     </body>
 </html>

@@ -223,3 +223,39 @@ main{
 .logout{
     color: white;
 }
+
+.dark{
+    background-color: #686868;
+}
+
+.dark header{
+    background-color: #313131;
+}
+
+.dark aside{
+    background-color: #373737;
+}
+
+.dark aside li.active {
+    background-color: #313131;
+}
+
+.dark .content {
+    background: #a6a6a6;
+    box-shadow: unset;
+}
+
+.dark .container-header h2 {
+    color: white;
+}
+
+.dark .content table th {
+    border-bottom: 1px solid #8e8e8e;
+    color: white;
+}
+
+.dark .btn,
+.dark .content table .actions a, 
+.dark .content table .actions .delete{
+    background-color: black;
+}
