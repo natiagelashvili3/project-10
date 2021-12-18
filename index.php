@@ -43,11 +43,7 @@
         <a href="index.php"><span class="logo">LOGO</span></a>
         <div class="user">
             <div>
-                <form action="setCookie.php" method="POST">
-                    <input type="hidden" name="action" value="change-mode">
-                    <input type="hidden" name="value" value="<?= $mode ?>">
-                    <button class="btn" id="mode"><?= ucfirst($mode) ?> Mode</button>
-                </form>
+                <button onclick="changeMode(this)" data-mode="<?= $mode ?>" class="btn" id="mode"><?= ucfirst($mode) ?> Mode</button>
             </div>
             <div>
                 <img src="assets/img/user.png" alt="">

@@ -259,3 +259,13 @@ main{
 .dark .content table .actions .delete{
     background-color: black;
 }
+
+#msg{
+    display: none;
+}
+.subscribe-success form{
+    display: none;
+}
+.subscribe-success #msg{
+    display: block;
+}
