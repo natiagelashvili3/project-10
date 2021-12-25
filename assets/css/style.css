@@ -269,3 +269,7 @@ main{
 .subscribe-success #msg{
     display: block;
 }
+
+.col-img img{
+    width: 100px;
+}

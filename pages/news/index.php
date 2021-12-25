@@ -26,7 +26,7 @@ $pageNumber = ceil($count['cnt'] / $limit);
 
 
 // SELECT Query
-$sql = "SELECT news.id as news_id, news.title as news_title, news.text, news.category_id, categories.id as cat_id, categories.title as category_title
+$sql = "SELECT news.id as news_id, news.title as news_title, news.text, news.image, news.category_id, categories.id as cat_id, categories.title as category_title
           FROM news
     LEFT JOIN categories ON news.category_id = categories.id ". $orderBy . ' LIMIT ' . $limit .' '. $offset;
 
@@ -54,6 +54,7 @@ $news = getAll($sql);
         <table>
             <tr>
                 <th>Id</th>
+                <th>Image</th>
                 <th>Title</th>
                 <th>Text</th>
                 <th>Category</th>
@@ -62,6 +63,13 @@ $news = getAll($sql);
             <?php foreach($news as $value): ?>
                 <tr>
                     <td><?= $value['news_id'] ?></td>
+                    <td class="col-img">
+                        <?php if($value['image'] && file_exists('uploads/'.$value['image'])){ ?>
+                            <img src="uploads/<?= $value['image'] ?>" alt="">
+                        <?php } else { ?>
+                            <img src="assets/img/image-holder.png" alt="">
+                        <?php } ?>
+                    </td>
                     <td><?= $value['news_title'] ?></td>
                     <td class="tb-text"><?= substr($value['text'], 0, 200) . '...' ?></td>
                     <td><?= $value['category_title'] ?></td>
