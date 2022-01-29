@@ -1,15 +1,15 @@
 
 <?php
 
+$model = new Category();
+
 // insert
 if(isset($_POST['action']) && $_POST['action'] == 'insert') {
     $title = isset($_POST['title']) ? $_POST['title'] : '' ;
 
     if($title) {
 
-        $sql = "INSERT INTO categories (title) VALUES ('$title')";
-
-        if(mysqli_query($conn, $sql)) {
+        if($model->insertCategory($title)) {
             echo "Record Created";
         } else {
             echo "Error";

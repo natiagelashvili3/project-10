@@ -4,6 +4,10 @@
     
     include 'helpers/functions.php';
     include 'helpers/db_connection.php';
+    //include 'helpers/pdo_connection.php';
+    include 'models/Database.php';
+    include 'models/Category.php';
+    include 'models/News.php';
 
     isAdmin();
 

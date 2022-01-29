@@ -1,18 +1,20 @@
 <?php    
 
+$model = new Category();
+
 // Delete Query
 if(isset($_POST['action']) && $_POST['action'] == 'delete'){
     $id = isset($_POST['id']) ? $_POST['id'] : null;
 
     if($id) {
         $delete_query = "DELETE FROM categories WHERE id = " .$id;
-        echo query($delete_query) ? "Record Deleted" : "Error" ;
+        echo $model->queryExecute($delete_query) ? "Record Deleted" : "Error";
     }
 }
 
 
 // SELECT Query
-$categories = getAll("SELECT * FROM categories ORDER BY id DESC");
+$categories = $model->getAll("SELECT * FROM categories ORDER BY id DESC");
 
 ?>
 
